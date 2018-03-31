@@ -4,16 +4,16 @@ import (
 	"log"
 	"net/http"
 
-	"Govel/app/controllers/homeController"
+	"Govel/app/controllers/home"
 
 	"github.com/gorilla/mux"
 )
 
-// InitRoutes stores all the
+// Init stores all the
 // routes used in the application
-func InitRoutes() {
+func Init() {
 	r := mux.NewRouter()
-	r.HandleFunc("/", homeController.Home)
-	r.NotFoundHandler = http.HandlerFunc(homeController.NotFound)
+	r.HandleFunc("/", home.Index)
+	r.NotFoundHandler = http.HandlerFunc(home.NotFound)
 	log.Fatal(http.ListenAndServe(":8080", r))
 }

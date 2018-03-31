@@ -1,14 +1,15 @@
-package homeController
+package home
 
 import (
 	"fmt"
 	"net/http"
+
+	"Govel/view"
 )
 
-// Home Handler provides the base of the application
-func Home(w http.ResponseWriter, r *http.Request) {
+func Index(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprint(w, "<h1> Welcome Home </h1>")
+	views.RenderView(w, nil, "resources/views/home/home.html")
 }
 
 // NotFound Handler is called when a route give
